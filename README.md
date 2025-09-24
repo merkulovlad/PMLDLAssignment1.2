@@ -52,12 +52,3 @@ The repository contains everything you need to serve the trained model locally w
    - Streamlit UI: http://localhost:8501
 
 The Compose file mounts the `models/` directory read-only so you can retrain with Airflow and instantly refresh the running containers. Shut everything down with `docker compose down`.
-
-## Environment variables & secrets
-- Place sensitive settings (database URIs, API keys) in a `.env` file next to `docker-compose.yml`. The file is ignored by git; add a `.env.example` if you need to document defaults.
-- Airflow uses the SQLite metadata database by default. If you switch to Postgres, add the connection string via the Airflow UI or environment variables rather than committing secrets.
-
-## Troubleshooting tips
-- If Docker complains about stale containers after an Airflow-triggered deploy, run `docker compose down` manually before re-running the pipeline.
-- When developing new DAGs, keep an eye on `services/airflow/airflow_home/logs/` for detailed task logs.
-- Regenerate the virtual environment (`airflow-venv/`) whenever dependencies change; the directory is ignored, so each contributor maintains their own copy.
