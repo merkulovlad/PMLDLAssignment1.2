@@ -1,0 +1,36 @@
+# macOS metadata
+.DS_Store
+
+# Python bytecode and packaging artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+airflow-venv/
+
+# Airflow runtime state (database, logs, generated configs)
+services/airflow/airflow_home/
+
+# Docker runtime artefacts and local overrides
+.env
+.env.local
+.envrc
+.env.*
+!.env.example
+!.env.sample
+docker-compose.override.yml
+docker-compose.local.yml
+docker-data/
+docker-volumes/
+
+# Editor settings
+.vscode/
+.idea/
+
+# MLflow tracking artefacts
+mlruns/
